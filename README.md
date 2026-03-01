@@ -89,13 +89,15 @@ Tomcat auto-deploys the application.
 ## 📂 Project Structure
 
 ```
-DevOps-Project-2/
+FormFillApp/
 │
-├── src/
+├── server/
+├── webapp/
+├── Dockerfile
 ├── pom.xml
-├── Jenkinsfile (optional)
-└── README.md
-```
+├── regapp-deploy.yml
+├── regapp-service.yml
+└── README (not created yet)
 
 ---
 
