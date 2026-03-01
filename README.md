@@ -152,7 +152,7 @@ Start Tomcat:
 #### 4️⃣ Access Application
 
 ```
-http://<Tomcat-IP>:8080/webapp
+http://<Tomcat-IP>:8080/webapp/
 ```
 
 
@@ -161,10 +161,10 @@ http://<Tomcat-IP>:8080/webapp
 
 Jenkins Freestyle / Pipeline Job includes:
 
-✔ GitHub Repository URL
-✔ Maven Build Step
-✔ Post-Build Deployment to Tomcat
-✔ Automated Execution
+* GitHub Repository URL
+* Maven Build Step
+* Post-Build Deployment to Tomcat
+* Automated Execution
 
 ---
 
