@@ -16,12 +16,12 @@ Git Server → GitHub → Jenkins Server → Tomcat Server
 
 Pipeline Flow:
 
-1️⃣ Developer pushes code to Git Server
-2️⃣ Code is mirrored to GitHub repository
-3️⃣ Jenkins pulls code from GitHub
-4️⃣ Maven builds the project and creates WAR file
-5️⃣ Jenkins deploys WAR file to Tomcat Server
-6️⃣ Application runs on Tomcat
+1. Developer pushes code to Git Server
+2. Code is mirrored to GitHub repository
+3. Jenkins pulls code from GitHub
+4. maven builds the project and creates WAR file
+5️. Jenkins deploys WAR file to Tomcat Server
+6️. Application runs on Tomcat
 
 ---
 
