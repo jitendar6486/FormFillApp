@@ -1,62 +1,69 @@
-<form action="action_page.php">
-  <div class="container">
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Student Registration Form</title>
+</head>
+<body>
 
-    <h1>Welcome!! Jitendar DevOps Student Registration</h1>
-    <p>Please fill in this form to register</p>
-    <hr>
+<h1>DevOps Student Registration Form</h1>
 
-    <!-- Full Name -->
-    <label><b>Full Name</b></label>
-    <input type="text" placeholder="Enter Full Name" name="fullname" required>
+<!-- Added Name -->
+<h3>@jitendar DevOps Engineer</h3>
 
-    <!-- Email -->
-    <label><b>Email</b></label>
-    <input type="email" placeholder="Enter Email" name="email" required>
+<p>Please fill in this form to register.</p>
+<hr>
 
-    <!-- Phone -->
-    <label><b>Phone Number</b></label>
-    <input type="tel" placeholder="Enter Phone Number" name="phone" required>
+<form action="action_page.jsp" method="post">
 
-    <!-- Course -->
-    <label><b>Course</b></label>
+    <label>Full Name:</label><br>
+    <input type="text" name="fullname" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Phone Number:</label><br>
+    <input type="tel" name="phone" required><br><br>
+
+    <label>Date of Birth:</label><br>
+    <input type="date" name="dob"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male<br>
+    <input type="radio" name="gender" value="Female"> Female<br>
+    <input type="radio" name="gender" value="Other"> Other<br><br>
+
+    <label>Select Course:</label><br>
     <select name="course">
-      <option>DevOps</option>
-      <option>AWS</option>
-      <option>Kubernetes</option>
-      <option>Docker</option>
-      <option>Linux</option>
-    </select>
+        <option>DevOps</option>
+        <option>AWS</option>
+        <option>Docker</option>
+        <option>Kubernetes</option>
+        <option>Linux</option>
+    </select><br><br>
 
-    <!-- Gender -->
-    <label><b>Gender</b></label><br>
-    <input type="radio" name="gender"> Male
-    <input type="radio" name="gender"> Female
-    <input type="radio" name="gender"> Other
-    <br><br>
+    <label>Address:</label><br>
+    <textarea name="address" rows="4" cols="30"></textarea><br><br>
 
-    <!-- Password -->
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
 
-    <!-- Confirm Password -->
-    <label><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <label>Confirm Password:</label><br>
+    <input type="password" name="confirm_password" required><br><br>
 
-    <!-- Address -->
-    <label><b>Address</b></label>
-    <input type="text" placeholder="Enter Address" name="address">
+    <input type="checkbox" required> I agree to the Terms and Conditions<br><br>
 
-    <!-- Terms -->
-    <p>By creating an account you agree to our Terms & Privacy.</p>
+    <input type="submit" value="Register">
+    <input type="reset" value="Reset">
 
-    <button type="submit" class="registerbtn">Register</button>
-
-  </div>
-
-  <div class="container" style="text-align:center; margin-top:10px;">
-    <p>Already have an account? Sign in</p>
-  </div>
 </form>
+
+<hr>
+
+<p>Already have an account? <a href="#">Login here</a></p>
+
+<!-- Added Footer -->
+<p><b>@jitendar DevOps Engineer</b></p>
 
 </body>
 </html>
