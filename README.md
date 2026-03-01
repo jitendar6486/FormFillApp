@@ -7,13 +7,6 @@ This project demonstrates a complete **End-to-End CI/CD Pipeline** using Git, Gi
 The pipeline automates the process from code commit to application deployment.
 
 ---
-
-## 🏗️ Architecture Diagram
-
-```
-Git Server → GitHub → Jenkins Server → Tomcat Server
-```
-
 Pipeline Flow:
 
 1. Developer pushes code to Git Server
@@ -97,7 +90,7 @@ FormFillApp/
 ├── pom.xml
 ├── regapp-deploy.yml
 ├── regapp-service.yml
-└── README (not created yet)
+└── README 
 
 ---
 
@@ -121,7 +114,7 @@ Make sure the following are installed:
 #### 1️⃣ Clone Repository
 
 ```
-git clone https://github.com/your-username/DevOps-Project-2.git
+git clone https://github.com/your-username/DevOps-Project-2.git](https://github.com/jitendar6486/FormFillApp.git
 ```
 
 ---
