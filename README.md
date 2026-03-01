@@ -170,11 +170,11 @@ Jenkins Freestyle / Pipeline Job includes:
 
 ## 🎯 Key Features
 
-✅ Fully Automated Build & Deployment
-✅ Continuous Integration
-✅ Continuous Delivery
-✅ Zero Manual Deployment
-✅ Production-style DevOps Workflow
+* Fully Automated Build & Deployment
+* Continuous Integration
+* Continuous Delivery
+* Zero Manual Deployment
+* Production-style DevOps Workflow
 
 ## 📌 Conclusion
 
@@ -182,7 +182,6 @@ This project demonstrates a complete end-to-end **CI/CD pipeline** for a Java we
 
 The implementation highlights how continuous integration and continuous deployment improve development efficiency, reduce manual errors, and ensure faster release cycles. Whenever new code is committed to the repository, Jenkins automatically builds the application, generates a WAR file, and deploys it to the Tomcat server without manual intervention.
 
-Overall, this project provides practical hands-on experience with real-world DevOps workflows and demonstrates how automation tools can streamline software delivery in production environments.
 
 
 
