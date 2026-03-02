@@ -114,7 +114,7 @@ Make sure the following are installed:
 #### 1️⃣ Clone Repository
 
 ```
-git clone https://github.com/your-username/DevOps-Project-2.git](https://github.com/jitendar6486/FormFillApp.git
+git clone https://github.com/jitendar6486/FormFillApp.git
 ```
 
 ---
