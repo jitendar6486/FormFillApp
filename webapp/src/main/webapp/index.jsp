@@ -2,32 +2,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DevOps Student Registration</title>
+
+<title>DevOps Student Registration Portal</title>
 
 <style>
 
 body{
     font-family: Arial;
-    background:#eef5ff;
+    background:#eef3ff;
+    margin:0;
+}
+
+.header{
+    background:#0b5394;
+    color:white;
+    text-align:center;
+    padding:15px;
 }
 
 .container{
-    width:600px;
-    margin:auto;
+    width:650px;
+    margin:30px auto;
     background:white;
     padding:30px;
     border-radius:10px;
-    box-shadow:0px 0px 10px gray;
+    box-shadow:0px 0px 12px gray;
 }
 
-h1{
+h2{
     text-align:center;
     color:#0b5394;
-}
-
-h3{
-    text-align:center;
-    color:green;
 }
 
 label{
@@ -37,16 +41,20 @@ label{
 input,select,textarea{
     width:100%;
     padding:8px;
-    margin-top:5px;
-    margin-bottom:15px;
+    margin-top:6px;
+    margin-bottom:14px;
     border:1px solid #ccc;
     border-radius:5px;
+}
+
+.skills input{
+    width:auto;
 }
 
 button{
     background:#0b5394;
     color:white;
-    padding:10px 20px;
+    padding:10px 18px;
     border:none;
     border-radius:5px;
 }
@@ -58,13 +66,36 @@ button:hover{
 .footer{
     text-align:center;
     margin-top:20px;
+    color:#0b5394;
+}
+
+.success{
     color:green;
+    text-align:center;
 }
 
 </style>
+
+<script>
+function validatePassword(){
+    var p=document.getElementById("pass").value;
+    var cp=document.getElementById("cpass").value;
+
+    if(p!=cp){
+        alert("Passwords do not match");
+        return false;
+    }
+}
+</script>
+
 </head>
 
 <body>
+
+<div class="header">
+<h1>DevOps Training Portal</h1>
+<p>@jitendar DevOps Engineer</p>
+</div>
 
 <%
 String submitted = request.getParameter("submitted");
@@ -74,10 +105,9 @@ if(submitted == null){
 
 <div class="container">
 
-<h1>DevOps Student Registration</h1>
-<h3>@jitendar DevOps Engineer</h3>
+<h2>Student Registration Form</h2>
 
-<form method="post">
+<form method="post" onsubmit="return validatePassword()">
 
 <label>Full Name</label>
 <input type="text" name="fullname" required>
@@ -85,13 +115,14 @@ if(submitted == null){
 <label>Email</label>
 <input type="email" name="email" required>
 
-<label>Phone Number</label>
+<label>Phone</label>
 <input type="tel" name="phone" required>
 
 <label>Date of Birth</label>
 <input type="date" name="dob">
 
 <label>Gender</label>
+
 <input type="radio" name="gender" value="Male"> Male
 <input type="radio" name="gender" value="Female"> Female
 <input type="radio" name="gender" value="Other"> Other
@@ -104,20 +135,22 @@ if(submitted == null){
 <option>AWS</option>
 <option>Docker</option>
 <option>Kubernetes</option>
-<option>Linux</option>
 <option>Terraform</option>
+<option>Linux</option>
 <option>CI/CD</option>
 </select>
 
-<label>Skills</label>
+<label>DevOps Skills</label>
 
+<div class="skills">
 <input type="checkbox" name="skills" value="Linux"> Linux
 <input type="checkbox" name="skills" value="Git"> Git
 <input type="checkbox" name="skills" value="Docker"> Docker
 <input type="checkbox" name="skills" value="Kubernetes"> Kubernetes
 <input type="checkbox" name="skills" value="AWS"> AWS
+</div>
 
-<br><br>
+<br>
 
 <label>Address</label>
 <textarea name="address"></textarea>
@@ -126,12 +159,12 @@ if(submitted == null){
 <input type="file" name="resume">
 
 <label>Password</label>
-<input type="password" name="password" required>
+<input type="password" id="pass" name="password" required>
 
 <label>Confirm Password</label>
-<input type="password" name="confirm_password" required>
+<input type="password" id="cpass" name="confirm_password" required>
 
-<input type="checkbox" required> I agree to Terms and Conditions
+<input type="checkbox" required> I agree to Terms & Conditions
 
 <input type="hidden" name="submitted" value="true">
 
@@ -142,52 +175,57 @@ if(submitted == null){
 
 </form>
 
-<div class="footer">
-DevOps Training Portal | © 2026
-</div>
-
 </div>
 
 <%
 }else{
+
+String studentId="DEV"+System.currentTimeMillis();
 %>
 
 <div class="container">
 
-<h1>Registration Successful</h1>
+<h2 class="success">Registration Successful</h2>
 
-<h3>Thank You for Registering!</h3>
+<hr>
 
-<p>
-Dear <b><%= request.getParameter("fullname") %></b>,
-your registration has been successfully submitted.
+<p class="success">
+Thank you <b><%= request.getParameter("fullname") %></b> for registering!
 </p>
 
 <hr>
 
-<h3>Submitted Details</h3>
+<h3>Student Information</h3>
 
-<p>
+Student ID: <b><%= studentId %></b><br><br>
+
 Email: <%= request.getParameter("email") %><br>
 Phone: <%= request.getParameter("phone") %><br>
 Course: <%= request.getParameter("course") %><br>
-</p>
+Gender: <%= request.getParameter("gender") %><br>
 
 <br>
 
+Registration Time:
+<%= new java.util.Date() %>
+
+<hr>
+
+<center>
 <a href="index.jsp">
 <button>Register Another Student</button>
 </a>
-
-<div class="footer">
-@jitendar DevOps Engineer
-</div>
+</center>
 
 </div>
 
 <%
 }
 %>
+
+<div class="footer">
+DevOps Student Portal | Powered by Jitendar
+</div>
 
 </body>
 </html>
