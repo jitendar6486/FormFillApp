@@ -8,84 +8,89 @@
 <style>
 
 body{
-    font-family: Arial;
-    background:#eef3ff;
-    margin:0;
+font-family:Arial;
+background:#eef3ff;
+margin:0;
 }
 
 .header{
-    background:#0b5394;
-    color:white;
-    text-align:center;
-    padding:15px;
+background:#0b5394;
+color:white;
+text-align:center;
+padding:20px;
 }
 
 .container{
-    width:650px;
-    margin:30px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0px 0px 12px gray;
+width:650px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
 }
 
 h2{
-    text-align:center;
-    color:#0b5394;
+text-align:center;
+color:#0b5394;
 }
 
 label{
-    font-weight:bold;
+font-weight:bold;
 }
 
 input,select,textarea{
-    width:100%;
-    padding:8px;
-    margin-top:6px;
-    margin-bottom:14px;
-    border:1px solid #ccc;
-    border-radius:5px;
+width:100%;
+padding:8px;
+margin-top:5px;
+margin-bottom:14px;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
 .skills input{
-    width:auto;
+width:auto;
 }
 
 button{
-    background:#0b5394;
-    color:white;
-    padding:10px 18px;
-    border:none;
-    border-radius:5px;
+background:#0b5394;
+color:white;
+padding:10px 18px;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
 button:hover{
-    background:#073763;
-}
-
-.footer{
-    text-align:center;
-    margin-top:20px;
-    color:#0b5394;
+background:#073763;
 }
 
 .success{
-    color:green;
-    text-align:center;
+color:green;
+text-align:center;
+}
+
+.footer{
+text-align:center;
+margin-top:20px;
+color:#0b5394;
 }
 
 </style>
 
 <script>
-function validatePassword(){
-    var p=document.getElementById("pass").value;
-    var cp=document.getElementById("cpass").value;
 
-    if(p!=cp){
-        alert("Passwords do not match");
-        return false;
-    }
+function validatePassword(){
+
+var p=document.getElementById("pass").value;
+var cp=document.getElementById("cpass").value;
+
+if(p!=cp){
+alert("Passwords do not match");
+return false;
 }
+
+}
+
 </script>
 
 </head>
@@ -94,13 +99,15 @@ function validatePassword(){
 
 <div class="header">
 <h1>DevOps Training Portal</h1>
-<p>@jitendar DevOps Engineer</p>
+<p>Powered by DevOps Engineer</p>
 </div>
 
 <%
+
 String submitted = request.getParameter("submitted");
 
 if(submitted == null){
+
 %>
 
 <div class="container">
@@ -130,7 +137,9 @@ if(submitted == null){
 <br><br>
 
 <label>Select Course</label>
+
 <select name="course">
+
 <option>DevOps</option>
 <option>AWS</option>
 <option>Docker</option>
@@ -138,30 +147,37 @@ if(submitted == null){
 <option>Terraform</option>
 <option>Linux</option>
 <option>CI/CD</option>
+
 </select>
 
 <label>DevOps Skills</label>
 
 <div class="skills">
+
 <input type="checkbox" name="skills" value="Linux"> Linux
 <input type="checkbox" name="skills" value="Git"> Git
 <input type="checkbox" name="skills" value="Docker"> Docker
 <input type="checkbox" name="skills" value="Kubernetes"> Kubernetes
 <input type="checkbox" name="skills" value="AWS"> AWS
+
 </div>
 
 <br>
 
 <label>Address</label>
+
 <textarea name="address"></textarea>
 
 <label>Upload Resume</label>
+
 <input type="file" name="resume">
 
 <label>Password</label>
+
 <input type="password" id="pass" name="password" required>
 
 <label>Confirm Password</label>
+
 <input type="password" id="cpass" name="confirm_password" required>
 
 <input type="checkbox" required> I agree to Terms & Conditions
@@ -178,9 +194,11 @@ if(submitted == null){
 </div>
 
 <%
+
 }else{
 
 String studentId="DEV"+System.currentTimeMillis();
+
 %>
 
 <div class="container">
@@ -190,7 +208,9 @@ String studentId="DEV"+System.currentTimeMillis();
 <hr>
 
 <p class="success">
+
 Thank you <b><%= request.getParameter("fullname") %></b> for registering!
+
 </p>
 
 <hr>
@@ -200,31 +220,43 @@ Thank you <b><%= request.getParameter("fullname") %></b> for registering!
 Student ID: <b><%= studentId %></b><br><br>
 
 Email: <%= request.getParameter("email") %><br>
+
 Phone: <%= request.getParameter("phone") %><br>
+
 Course: <%= request.getParameter("course") %><br>
+
 Gender: <%= request.getParameter("gender") %><br>
 
 <br>
 
 Registration Time:
+
 <%= new java.util.Date() %>
 
 <hr>
 
 <center>
+
 <a href="index.jsp">
+
 <button>Register Another Student</button>
+
 </a>
+
 </center>
 
 </div>
 
 <%
+
 }
+
 %>
 
 <div class="footer">
+
 DevOps Student Portal | Powered by Jitendar
+
 </div>
 
 </body>
