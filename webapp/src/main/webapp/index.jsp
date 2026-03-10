@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>DevOps Student Registration Portal</title>
+<title>DevOps Student Portal</title>
 
 <style>
 
@@ -45,10 +45,6 @@ margin-top:5px;
 margin-bottom:14px;
 border:1px solid #ccc;
 border-radius:5px;
-}
-
-.skills input{
-width:auto;
 }
 
 button{
@@ -105,8 +101,10 @@ return false;
 <%
 
 String submitted = request.getParameter("submitted");
+String login = request.getParameter("login");
+String dologin = request.getParameter("dologin");
 
-if(submitted == null){
+if(submitted == null && login == null && dologin == null){
 
 %>
 
@@ -125,69 +123,26 @@ if(submitted == null){
 <label>Phone</label>
 <input type="tel" name="phone" required>
 
-<label>Date of Birth</label>
-<input type="date" name="dob">
-
-<label>Gender</label>
-
-<input type="radio" name="gender" value="Male"> Male
-<input type="radio" name="gender" value="Female"> Female
-<input type="radio" name="gender" value="Other"> Other
-
-<br><br>
-
 <label>Select Course</label>
 
 <select name="course">
-
 <option>DevOps</option>
 <option>AWS</option>
 <option>Docker</option>
 <option>Kubernetes</option>
-<option>Terraform</option>
-<option>Linux</option>
-<option>CI/CD</option>
-
 </select>
 
-<label>DevOps Skills</label>
-
-<div class="skills">
-
-<input type="checkbox" name="skills" value="Linux"> Linux
-<input type="checkbox" name="skills" value="Git"> Git
-<input type="checkbox" name="skills" value="Docker"> Docker
-<input type="checkbox" name="skills" value="Kubernetes"> Kubernetes
-<input type="checkbox" name="skills" value="AWS"> AWS
-
-</div>
-
-<br>
-
-<label>Address</label>
-
-<textarea name="address"></textarea>
-
-<label>Upload Resume</label>
-
-<input type="file" name="resume">
-
 <label>Password</label>
-
 <input type="password" id="pass" name="password" required>
 
 <label>Confirm Password</label>
-
 <input type="password" id="cpass" name="confirm_password" required>
-
-<input type="checkbox" required> I agree to Terms & Conditions
 
 <input type="hidden" name="submitted" value="true">
 
 <br><br>
 
 <button type="submit">Register</button>
-<button type="reset">Reset</button>
 
 </form>
 
@@ -195,7 +150,7 @@ if(submitted == null){
 
 <%
 
-}else{
+}else if(submitted != null){
 
 String studentId="DEV"+System.currentTimeMillis();
 
@@ -205,45 +160,73 @@ String studentId="DEV"+System.currentTimeMillis();
 
 <h2 class="success">Registration Successful</h2>
 
-<hr>
-
 <p class="success">
-
-Thank you <b><%= request.getParameter("fullname") %></b> for registering!
-
+Welcome <b><%= request.getParameter("fullname") %></b>
 </p>
-
-<hr>
-
-<h3>Student Information</h3>
 
 Student ID: <b><%= studentId %></b><br><br>
 
 Email: <%= request.getParameter("email") %><br>
-
-Phone: <%= request.getParameter("phone") %><br>
-
 Course: <%= request.getParameter("course") %><br>
-
-Gender: <%= request.getParameter("gender") %><br>
 
 <br>
 
-Registration Time:
-
-<%= new java.util.Date() %>
-
-<hr>
-
-<center>
-
-<a href="index.jsp">
-
-<button>Register Another Student</button>
-
+<a href="index.jsp?login=true">
+<button>Go to Login</button>
 </a>
 
-</center>
+</div>
+
+<%
+
+}else if(login != null){
+
+%>
+
+<div class="container">
+
+<h2>Student Login</h2>
+
+<form method="post">
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Password</label>
+<input type="password" name="password" required>
+
+<input type="hidden" name="dologin" value="true">
+
+<br><br>
+
+<button type="submit">Login</button>
+
+</form>
+
+</div>
+
+<%
+
+}else if(dologin != null){
+
+%>
+
+<div class="container">
+
+<h2 class="success">Login Successful</h2>
+
+Welcome back <b><%= request.getParameter("email") %></b>
+
+<br><br>
+
+Login Time:
+<%= new java.util.Date() %>
+
+<br><br>
+
+<a href="index.jsp">
+<button>Logout</button>
+</a>
 
 </div>
 
