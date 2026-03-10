@@ -2,19 +2,23 @@
 
 ## 📌 Overview
 
-This project demonstrates a complete **End-to-End CI/CD Pipeline** using Git, GitHub, Maven, Jenkins, and Tomcat Server to automatically build and deploy a Java web application.
+This project demonstrates a complete DevOps CI/CD pipeline for deploying a Java web application using modern DevOps tools.
 
-The pipeline automates the process from code commit to application deployment.
-
+The pipeline automates the process from code commit → build → Docker image creation → deployment using Jenkins, Maven, Ansible, Docker, and DockerHub.
 ---
 Pipeline Flow:
-
 1. Developer pushes code to Git Server
 2. Code is mirrored to GitHub repository
-3. Jenkins pulls code from GitHub
-4. maven builds the project and creates WAR file
-5️. Jenkins deploys WAR file to Tomcat Server
-6️. Application runs on Tomcat
+3. Jenkins pulls the latest code from GitHub
+4. Maven builds the project and generates a WAR file
+5. Jenkins triggers Ansible playbook for deployment
+6. Ansible builds the Docker image using Dockerfile
+7. Docker image is tagged and pushed to DockerHub
+8. Docker Server pulls the image from DockerHub
+9. Docker container is created using Tomcat image
+10. WAR file is deployed inside Tomcat container
+11. Application runs inside Docker container
+12. Users access the application via browser
 
 ---
 
@@ -22,24 +26,24 @@ Pipeline Flow:
 
 * Git (Version Control)
 * GitHub (Remote Repository)
-* Java (Application)
+* Java (Application Development)
 * Maven (Build Tool)
 * Jenkins (CI/CD Automation)
+* Ansible (Configuration Management & Deployment)
+* Docker (Containerization Platform)
+* DockerHub (Container Image Registry)
 * Apache Tomcat (Application Server)
-* Linux Server (Deployment Environment)
+* Linux (Server Environment)
 
 ---
 
 ## ⚙️ CI/CD Pipeline Workflow
 
 ### 🔹 Stage 1 — Source Code Management
-
-* Code stored in Git Server
-* Synced with GitHub repository
-* Jenkins configured to pull latest code
-
+* Application code stored in Git Server
+* Code mirrored to GitHub repository
+* Jenkins configured to pull the latest code from GitHub
 ---
-
 ### 🔹 Stage 2 — Build
 
 Jenkins triggers Maven build:
@@ -51,36 +55,42 @@ mvn clean package
 Output:
 
 ```
-target/application.war
+target/regapp.war
 ```
 
 ---
 
 ### 🔹 Stage 3 — Continuous Integration
-
 Jenkins Job performs:
+* Source code checkout from GitHub
+* Java compilation
+* Packaging using Maven
+* WAR file generation
+---
+### 🔹 Stage 4 — Docker Image Creation
+Ansible playbook builds the Docker image using Dockerfile:
 
-* Code checkout from GitHub
-* Compilation
-* Packaging
-* Artifact generation (WAR file)
+---
+### 🔹 Stage 5 — Docker Image Push
+
+Docker image is tagged and pushed to DockerHub:
 
 ---
 
-### 🔹 Stage 4 — Deployment
+### 🔹 Stage 6 — Deployment
 
-WAR file deployed to Tomcat Server:
+Docker server pulls the image and runs the container:
 
-```
-/opt/tomcat/webapps/
-```
 
-Tomcat auto-deploys the application.
+The application runs inside a **Tomcat container**.
 
 ---
+
+### 🔹 Stage 7 — Application Access
+
+Users can access the application via browser:
 
 ## 📂 Project Structure
-
 ```
 FormFillApp/
 │
@@ -92,91 +102,14 @@ FormFillApp/
 ├── regapp-service.yml
 └── README 
 
----
-
-## ▶️ How to Run the Project
-
-### 🔧 Prerequisites
-
-Make sure the following are installed:
-
-* Java JDK 8 or above
-* Maven
-* Git
-* Jenkins
-* Apache Tomcat
-* Linux Server (Recommended)
-
----
-
-### 🚀 Setup Steps
-
-#### 1️⃣ Clone Repository
-
-```
-git clone https://github.com/jitendar6486/FormFillApp.git
-```
-
----
-
-#### 2️⃣ Build Using Maven
-
-```
-cd DevOps-Project-2
-mvn clean package
-```
-
----
-
-#### 3️⃣ Deploy to Tomcat
-
-Copy WAR file:
-
-```
-cp target/*.war /opt/tomcat/webapps/
-```
-
-Start Tomcat:
-
-```
-./startup.sh
-```
-
----
-
-#### 4️⃣ Access Application
-
-```
-http://<Tomcat-IP>:8080/webapp/
-```
-
-
-
-## 🤖 Jenkins Job Configuration
-
-Jenkins Freestyle / Pipeline Job includes:
-
-* GitHub Repository URL
-* Maven Build Step
-* Post-Build Deployment to Tomcat
-* Automated Execution
-
----
-
 ## 🎯 Key Features
 
-* Fully Automated Build & Deployment
-* Continuous Integration
-* Continuous Delivery
-* Zero Manual Deployment
-* Production-style DevOps Workflow
-
+* Automated CI/CD Pipeline
+* Dockerized Java Application
+* Jenkins + Ansible Deployment
+* Fast and Reliable Releases
+```
 ## 📌 Conclusion
 
-This project demonstrates a complete end-to-end **CI/CD pipeline** for a Java web application using modern DevOps tools. By integrating Git, GitHub, Maven, Jenkins, and Apache Tomcat, the pipeline automates the entire software delivery process — from source code management to build, testing, and deployment.
-
-The implementation highlights how continuous integration and continuous deployment improve development efficiency, reduce manual errors, and ensure faster release cycles. Whenever new code is committed to the repository, Jenkins automatically builds the application, generates a WAR file, and deploys it to the Tomcat server without manual intervention.
-
-
-
+This project demonstrates an end-to-end **CI/CD pipeline** for a Java web application using DevOps tools like Git, GitHub, Maven, Jenkins, Ansible, and Docker. The pipeline automates the process of building, containerizing, and deploying the application, ensuring faster and more reliable software delivery.
 
