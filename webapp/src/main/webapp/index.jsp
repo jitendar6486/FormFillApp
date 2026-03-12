@@ -388,7 +388,7 @@ Course: <%= user.get("course") %>
 
 <div class="footer">
 
-DevOps Student Portal | Powered by @Jitendar Saw
+DevOps Student Portal | Powered by @DevOps Engineer Jitendar 
 
 </div>
 
