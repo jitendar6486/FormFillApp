@@ -238,7 +238,7 @@ Login Time:
 
 <div class="footer">
 
-DevOps Student Portal | Powered by Jitendar Kumar Saw
+DevOps Student Portal | Powered by @Jitendar  Saw
 
 </div>
 
