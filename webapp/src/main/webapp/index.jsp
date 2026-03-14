@@ -247,7 +247,7 @@ Login Time:
 Powered by <b>@Jitendar Saw</b><br><br>
 
 📞 Contact: <b>9661007187</b><br>
-📧 Email: <b>jitendarsaw12@gmail.com</b>
+📧 Email: <b>sawj8788@gmail.com</b>
 
 </div>
 
