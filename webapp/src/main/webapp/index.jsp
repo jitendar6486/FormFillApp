@@ -74,6 +74,16 @@ padding:15px;
 font-size:16px;
 }
 
+.footer a{
+color:#0b5394;
+font-weight:bold;
+text-decoration:none;
+}
+
+.footer a:hover{
+text-decoration:underline;
+}
+
 </style>
 
 <script>
@@ -247,7 +257,12 @@ Login Time:
 Powered by <b>@JITENDAR SAW DEVOPS ENGINEER</b><br><br>
 
 📞 Contact: <b>9113718263</b><br>
-📧 Email: <b>sawj8788@gmail.com</b>
+📧 Email: <b>sawj8788@gmail.com</b><br><br>
+
+🔗 LinkedIn: 
+<a href="https://www.linkedin.com/in/jitendar-kumar-saw-6736b029a" target="_blank">
+https://www.linkedin.com/in/jitendar-kumar-saw-6736b029a
+</a>
 
 </div>
 
