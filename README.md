@@ -6,8 +6,9 @@ This project demonstrates a complete DevOps CI/CD pipeline for deploying a Java 
 
 The pipeline automates the process from code commit → build → Docker image creation → deployment using Jenkins, Maven, Ansible, Docker, and DockerHub.
 ---
+<img width="1536" height="1024" alt="project2" src="https://github.com/user-attachments/assets/2361f3c8-d7d3-4977-82dd-bb572aa52846" />
 
-![Uploading project2.png…]()
+
 
 
 Pipeline Flow:
