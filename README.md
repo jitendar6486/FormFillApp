@@ -7,7 +7,8 @@ This project demonstrates a complete DevOps CI/CD pipeline for deploying a Java 
 The pipeline automates the process from code commit → build → Docker image creation → deployment using Jenkins, Maven, Ansible, Docker, and DockerHub.
 ---
 
-![Uploading ChatGPT Image May 14, 2026, 07_10_37 PM.png…]()
+![Uploading project2.png…]()
+
 
 Pipeline Flow:
 1. Developer pushes code to Git Server
